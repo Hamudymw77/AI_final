@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rozpoznání Cristiana Ronalda</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; color: #333; text-align: center; padding: 50px; }
+        .container { max-width: 500px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #d32f2f; }
+        input[type="file"] { margin: 20px 0; }
+        input[type="submit"] { background-color: #d32f2f; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; }
+        input[type="submit"]:hover { background-color: #b71c1c; }
+        .result { margin-top: 20px; padding: 15px; font-size: 18px; font-weight: bold; border-radius: 5px; }
+        .success { background-color: #c8e6c9; color: #2e7d32; }
+        .error { background-color: #ffcdd2; color: #c62828; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Poznej Ronalda! ⚽</h1>
+    <p>Nahrajte fotku obličeje a umělá inteligence pozná, zda se jedná o Cristiana Ronalda.</p>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <br>
+        <input type="submit" value="Zkontrolovat fotku">
+    </form>
+
+    {% if vysledek %}
+        <div class="result success">{{ vysledek }}</div>
+    {% endif %}
+
+    {% if chyba %}
+        <div class="result error">{{ chyba }}</div>
+    {% endif %}
+</div>
+
+</body>
+</html>
